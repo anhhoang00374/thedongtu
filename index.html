@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập chia thể động từ 241123</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+
+
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .header {
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: green;
+            color: white;
+            text-shadow: 10px 10px 10px black;
+            margin: 10px;
+            box-shadow: 10px 10px 10px black;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 40px;
+            ;
+            color: green;
+            text-shadow: 10px 10px 10px black;
+        }
+
+        .title-content {
+            font-size: 20px;
+        }
+        
+        .input {
+            text-align: center;
+            /* width: 500px; */
+            /* Chiều rộng */
+            height: 60px;
+            /* Chiều cao */
+            font-size: 20px;
+            border: 2px solid green;
+            /* Border */
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            /* Màu nền */
+            padding: 8px;
+            /* Khoảng cách từ nội dung đến mép của border */
+            box-shadow: 10px 10px 10px black;
+
+        }
+
+        .none {
+            display: none;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .select-box {
+            padding: 1px 0;
+        }
+
+        .num {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .display-content {
+
+            width: 100%;
+
+        }
+
+        .container-flash{
+            padding: 0px 30px;
+        }
+        .japan,.message{
+            margin: 15px 0;
+        }
+        .flashcard {
+            margin-top: 10px;
+            width: 100%;
+            height: 250px;
+            border: 3px solid rgb(16, 141, 16);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            box-shadow: 10px 10px 10px black;
+            perspective: 880px;
+            position: relative;
+        }
+        #right{
+            display: none;
+        }
+        .card-back {
+            font-size: 37px;
+            text-align: center;
+            /* animation:flip-animate 1s linear ;   Làm xoay các ảnh */
+            transform-style: preserve-3d;
+            transition-duration: 0.5s;
+        }
+
+        #beto,
+        #hira {
+            font-size: 16px;
+        }
+
+        .flashcard:hover {
+            background-color: #f5f5f5;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: rgb(16, 141, 16);
+        }
+
+        .nav {
+            position: fixed;
+
+            bottom: 100px;
+        }
+
+        /* .remembered {
+            margin-right: 30px;
+        } */
+
+        select {
+            border: none;
+            background: green;
+            color: whitesmoke;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 22px;
+            box-shadow: 10px 10px 10px black;
+        }
+
+        .btn {
+            font-size: 25px;
+            padding: 10px 20px;
+            box-shadow: 2px 2px 2px black;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            border-radius: 5px;
+        }
+
+        .remembered {
+            background: green;
+
+        }
+
+        .forget {
+            background: red;
+        }
+
+        .again {
+            background: green;
+        }
+
+        .check {
+            display: none;
+        }
+
+        #vn,
+        #beto,
+        #kanji,
+        #hira {
+            display: none;
+        }
+
+        /* .right {
+            display: flex;
+            justify-content: right;
+            font-size: 20px;
+        } */
+        #container-flash{
+            position: relative;
+        }
+        #right {
+            position: absolute;
+            right: 40px;
+            top: 50px;
+            z-index: 10;
+        }
+
+        .opacity {
+            
+            color: red;
+            animation-name: opacity;
+            animation-duration: 3s;
+        }
+
+        .opacityNot {
+            
+            color: red;
+            animation: infinite;
+            animation-name: opacityNot;
+            animation-duration: 17s;
+            
+        }
+
+        .opacityNot2 {
+            
+            color: red;
+            
+            animation-name: opacityNot2;
+            animation-duration: 17s;
+            
+        }
+
+        .opacityOk {
+            font-size: 20px;
+            color: green;
+            animation-name: opacityOk;
+            animation-duration: 2s;
+        }
+
+        .hint{
+            background-color: green;
+            padding: 2px 4px;
+            box-shadow: 2px 2px 2px black;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            border-radius: 5px;
+        }
+
+        .message{
+            font-size: 15px;
+        }
+
+        /* @keyframes opacity {
+            from {
+                opacity: 1;
+                ;
+            }
+
+            to {
+                opacity: 0;
+                ;
+            }
+        }
+
+        @keyframes opacityOk {
+            from {
+                opacity: 1;
+                ;
+            }
+
+            to {
+                opacity: 0;
+                ;
+            }
+        }
+
+        @keyframes opacityNot {
+            from {
+                opacity: 1;
+                ;
+            }
+
+            to {
+                opacity: 0.3;
+                ;
+            }
+        }
+
+        @keyframes opacityNot2 {
+            from {
+                opacity: 1;
+                ;
+            }
+
+            to {
+                opacity: 0.3;
+                ;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <p>Hoang先生</p>
+            </div>
+            <div class="grade">
+                <p>241123</p>
+            </div>
+        </div>
+        <div class="title">
+            <p>頑張りましょう</p>
+        </div>
+        <d class="content">
+                    <select id="content-select" onchange="changeContent()">
+                        <option value="default" disabled selected>Chọn thể</option>
+                        <option value="te">Động từ thể て</option>
+                        <option value="ta">Động từ thể た</option>
+                        <option value="nai">Động từ thể ない</option>
+                    </select>
+
+        </div>
+        <div class="display-content" id="display-content">
+                <div class="num" id="num">0</div>
+                <div class="container-flash" id="container-flash">
+                    <div id="right">
+                        <div class="right">
+                            <label onclick="event.stopPropagation()" for="betoBtn">* Lịch sự &nbsp; </label>
+                            <input type="radio" value="lichsu" checked name="the" id="betoBtn" onchange="changeType(this)" onclick="event.stopPropagation()" >
+                            <label onclick="event.stopPropagation()" for="">&nbsp;</label>
+                            <label onclick="event.stopPropagation()" for="betoBtn1">Từ điển&nbsp;</label>
+                            <input type="radio" value="tudien" name="the" id="betoBtn1" onchange="changeType(this)" onclick="event.stopPropagation()" >
+                        </div>
+                        <div class="right">
+                            <label onclick="event.stopPropagation()" for="betoBtn3">* Kanji &nbsp;</label>
+                            <input type="radio" checked name="hira" id="betoBtn3" value="kanji" onchange="changeDisplaying(this)" onclick="event.stopPropagation()" >
+                            <label onclick="event.stopPropagation()" for="">&nbsp;</label>
+                            <label onclick="event.stopPropagation()" for="betoBtn2">Hiragana &nbsp;</label>
+                            <input type="radio"  name="hira" value="hira" onchange="changeDisplaying(this)" id="betoBtn2" onclick="event.stopPropagation()" >
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="flashcard" id="flashcard">
+                        <div style="text-align: center;">
+                            <p class="title-content test">Nhập tên của bạn:</p> 
+                            <p class="japan"></p>
+                            <input placeholder="Nhập tên của bạn" class="input" />
+        
+                            <p class="title-content message"></p>
+                        </div>
+        
+                    </div>
+                </div>
+            
+
+        </div>
+        <br>
+        <br>
+        <div class="navigation" id="navigation">
+            <button class="btn remembered control" onclick="handleOnclick()">Tiếp tục</button>
+        </div>
+        <select id="selectBox" hidden>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>ß
+        </select>
+    </div>
+
+    <script>
+        let studentName = "";
+        let btnName = "Tiếp tục";
+        let message = ""
+        let numberTest = 0;
+        let testContent = "Nhập tên của bạn:";
+        let japanValue = "";
+        let focus = true;
+        let selectedValue = 1;
+        let currentNumber;
+        let currentIndex = 0;
+        let currentArray = [];
+        let timeId;
+        let thedongtu = "te";
+        let type = "lichsu";
+        let displaying = "kanji";
+
+        let listAnswerOK = ["Quá giỏi!!!", "Chính xác!!!", "Làm tốt lắm!!!", "Một câu trả lời xuất sắc"];
+        let listAnswerNot = ["Quá xui!!! Kiểm tra lại nào", "Vẫn chưa đúng lắm, xem lại lần nữa nhé!!!", "Gần đúng rồi,thử lại đi!!!", "Có gì đó sai sai, hãy nhìn lại một lần nữa"];
+
+        let listNumber = [
+            {
+                nghia: "Làm việc",
+                tudien: ["働く","はたらく"],
+                lichsu: ["働きます","はたらきます"],
+                te: ["働いて","はたらいて"],
+                ta:["働いた","はたらいた"],
+                nai:["働かない","はたらかない"]
+            },
+            {
+                nghia: "Nghỉ",
+                tudien: ["休む","やすむ"],
+                lichsu: ["休みます","やすみます"],
+                te: ["休んで","やすんで"],
+                ta:["休んだ","やすんだ"],
+                nai:["休まない","やすまない"]
+            },
+            {
+                nghia: "Kết thúc",
+                tudien: ["終わる","おわる"],
+                lichsu: ["終わります","おわります"],
+                te: ["終わって","おわって"],
+                ta:["終わった","おわった"],
+                nai:["終わらない","おわらない"]
+            },
+            {
+                nghia: "Thức dậy",
+                tudien: ["起きる","おきる"],
+                lichsu: ["起きます","おきます"],
+                te: ["起きて","おきて"],
+                ta:["起きた","おきた"],
+                nai:["起きない","おきない"]
+            },
+            {
+                nghia: "Ngủ",
+                tudien: ["寝る","ねる"],
+                lichsu: ["寝ます","ねます"],
+                te: ["寝て","ねて"],
+                ta:["寝た","ねた"],
+                nai:["寝ない","ねない"]
+            },
+            {
+                nghia: "Học",
+                tudien: ["勉強する","べんきょうする"],
+                lichsu: ["勉強します","べんきょうします"],
+                te: ["勉強して","べんきょうして"],
+                ta:["勉強した","べんきょうした"],
+                nai:["勉強しない","べんきょうしない"]
+            },
+            {
+                nghia: "Đi",
+                tudien: ["行く","いく"],
+                lichsu: ["行きます","いきます"],
+                te: ["行って","いって"],
+                ta:["行った","いった"],
+                nai:["行かない","いかない"]
+            },
+            {
+                nghia: "Đến",
+                tudien: ["来る","くる"],
+                lichsu: ["来ます","きます"],
+                te: ["来て","きて"],
+                ta:["来た","きた"],
+                nai:["来ない","こない"]
+            },
+            {
+                nghia: "Về",
+                tudien: ["帰る","かえる"],
+                lichsu: ["帰ります","かえります"],
+                te: ["帰って","かえって"],
+                ta:["帰った","かえった"],
+                nai:["帰らない","かえらない"]
+            },
+            {
+                nghia: "Đọc",
+                tudien: ["読む","よむ"],
+                lichsu: ["読みます","よみます"],
+                te: ["読んで","よんで"],
+                ta:["読んだ","よんだ"],
+                nai:["読まない","よまない"]
+            },
+            {
+                nghia: "Viết",
+                tudien: ["書く","かく"],
+                lichsu: ["書きます","かきます"],
+                te: ["書いて","かいて"],
+                ta:["書いた","かいた"],
+                nai:["書かない","かかない"]
+            },
+            {
+                nghia: "Mua",
+                tudien: ["買う","かう"],
+                lichsu: ["書います","かいます"],
+                te: ["買って","かって"],
+                ta:["買った","かった"],
+                nai:["買わない","かわない"]
+            },
+            {
+                nghia: "Chụp(hình)",
+                tudien: ["写真を撮る","しゃしんをとる"],
+                lichsu: ["写真を撮ります","しゃしんをとります"],
+                te: ["撮って","とって"],
+                ta:["撮った","とった"],
+                nai:["撮らない","とらない"]
+            },
+            {
+                nghia: "Nghe",
+                tudien: ["聞く","きく"],
+                lichsu: ["聞きます","かきます"],
+                te: ["聞いて","きいて"],
+                ta:["聞いた","きいた"],
+                nai:["聞かない","きかない"]
+            },
+            {
+                nghia: "Hút(thuốc)",
+                tudien: ["タバコを吸う","タバコをすう"],
+                lichsu: ["タバコを吸います","タバコをすいます"],
+                te: ["吸って","すって"],
+                ta:["吸った","すった"],
+                nai:["吸わない","すわない"]
+            },
+            {
+                nghia: "Gặp",
+                tudien: ["会う","あう"],
+                lichsu: ["会います","あいます"],
+                te: ["会って","あって"],
+                ta:["会った","あった"],
+                nai:["会わない","あわない"]
+            },
+            {
+                nghia: "Uống",
+                tudien: ["飲む","のむ"],
+                lichsu: ["飲みます","のみます"],
+                te: ["飲んで","のんで"],
+                ta:["飲んだ","のんだ"],
+                nai:["飲まない","のまない"]
+            },
+            {
+                nghia: "Ăn",
+                tudien: ["食べる","たべる"],
+                lichsu: ["食べます","食べます"],
+                te: ["食べて","たべて"],
+                ta:["食べた","たべた"],
+                nai:["食べない","たべない"]
+            },
+            {
+                nghia: "Nhìn",
+                tudien: ["見る","みる"],
+                lichsu: ["見ます","みます"],
+                te: ["見て","みて"],
+                ta:["見た","みた"],
+                nai:["見ない","みない"]
+            },
+            {
+                nghia: "Dùng bữa",
+                tudien: ["食事する","しょくじする"],
+                lichsu: ["食事します","しょくじします"],
+                te: ["食事して","しょくじして"],
+                ta:["食事した","しょくじした"],
+                nai:["食事しない","しょくじしない"]
+            },
+            {
+                nghia: "Gửi",
+                tudien: ["送る","おくる"],
+                lichsu: ["送ります","おくります"],
+                te: ["送って","おくって"],
+                ta:["送った","おくった"],
+                nai:["送らない","おくらない"]
+            },
+            {
+                nghia: "Nhận",
+                tudien: ["貰う","もらう"],
+                lichsu: ["貰います","もらいます"],
+                te: ["貰って","もらって"],
+                ta:["貰った","もらった"],
+                nai:["貰わない","もらわない"]
+            },
+            {
+                nghia: "Học",
+                tudien: ["習う","ならう"],
+                lichsu: ["習います","ならいます"],
+                te: ["習って","ならって"],
+                ta:["習った","ならった"],
+                nai:["習わない","ならわない"]
+            },
+            {
+                nghia: "Cho mượn",
+                tudien: ["貸す","かす"],
+                lichsu: ["貸します","かします"],
+                te: ["貸して","かして"],
+                ta:["貸した","かした"],
+                nai:["貸さない","かさない"]
+            },
+            {
+                nghia: "Mượn",
+                tudien: ["借りる","かりる"],
+                lichsu: ["借ります","かります"],
+                te: ["借りて","かりて"],
+                ta:["借りた","かりた"],
+                nai:["借りない","かりない"]
+            },
+            {
+                nghia: "Chỉ,dạy",
+                tudien: ["教える","おしえる"],
+                lichsu: ["教えます","おしえます"],
+                te: ["教えて","おしえて"],
+                ta:["教えた","おしえた"],
+                nai:["教えない","おしえない"]
+            },
+            {
+                nghia: "Gọi(điện thoại)",
+                tudien: ["電話をかける","でんわをかける"],
+                lichsu: ["電話をかけます","でんわをかけます"],
+                te: ["かけて","かけて"],
+                ta:["かけた","かけた"],
+                nai:["かけない","かけない"]
+            },
+            {
+                nghia: "Tặng",
+                tudien: ["あげる","あげる"],
+                lichsu: ["あげます","あげます"],
+                te: ["あげて","あげて"],
+                ta:["あげた","あげた"],
+                nai:["あげない","あげない"]
+            },
+            {
+                nghia: "Nướng",
+                tudien: ["焼く","やく"],
+                lichsu: ["焼きます","やきます"],
+                te: ["焼いて","やいて"],
+                ta:["焼いた","やいた"],
+                nai:["焼かない","やかない"]
+            },
+            {
+                nghia: "Chơi",
+                tudien: ["遊ぶ","あそぶ"],
+                lichsu: ["遊びます","あそびます"],
+                te: ["遊んで","あそんで"],
+                ta:["遊んだ","あそんだ"],
+                nai:["遊ばない","あそばない"]
+            },
+            {
+                nghia: "Bơi",
+                tudien: ["泳ぐ","およぐ"],
+                lichsu: ["泳ぎます","およびます"],
+                te: ["泳いで","およいで"],
+                ta:["泳いだ","およいだ"],
+                nai:["泳がない","およがない"]
+            },
+            {
+                nghia: "Nộp(báo cáo)",
+                tudien: ["レポートを出す","レポートをだす"],
+                lichsu: ["レポートを出します","レポートをだします"],
+                te: ["出して","だして"],
+                ta:["出した","だした"],
+                nai:["出さない","ださない"]
+            },
+            {
+                nghia: "Vào",
+                tudien: ["入る","はいる"],
+                lichsu: ["入ります","はいります"],
+                te: ["入って","はいって"],
+                ta:["入った","はいった"],
+                nai:["入らない","はいらない"]
+            },
+            {
+                nghia: "Ra",
+                tudien: ["出る","でる"],
+                lichsu: ["出ます","でます"],
+                te: ["出て","でて"],
+                ta:["出た","でた"],
+                nai:["出ない","でない"]
+            },
+            {
+                nghia: "Đón",
+                tudien: ["迎える","むかえる"],
+                lichsu: ["迎えます","むかえます"],
+                te: ["迎えて","むかえて"],
+                ta:["迎えた","むかえた"],
+                nai:["迎えない","むかえない"]
+            },
+            {
+                nghia: "Kết hôn",
+                tudien: ["結婚する","けっこんする"],
+                lichsu: ["結婚します","けっこんします"],
+                te: ["結婚して","けっこんして"],
+                ta:["結婚した","けっこんした"],
+                nai:["結婚しない","けっこんしない"]
+            },
+            {
+                nghia: "Mua sắm",
+                tudien: ["買い物する","かいものする"],
+                lichsu: ["買い物します","かいものします"],
+                te: ["買い物して","かいものして"],
+                ta:["買い物した","買い物した"],
+                nai:["買い物しない","かいものしない"]
+            },
+            {
+                nghia: "Đi dạo",
+                tudien: ["散歩する","さんぽする"],
+                lichsu: ["散歩します","さんぽします"],
+                te: ["散歩して","さんぽして"],
+                ta:["散歩した","さんぽした"],
+                nai:["散歩しない","さんぽしない"]
+            },
+            {
+                nghia: "Nói chuyện",
+                tudien: ["話す","はなす"],
+                lichsu: ["話します","はなします"],
+                te: ["話して","はなして"],
+                ta:["話した","はなした"],
+                nai:["話さない","はなさない"]
+            },
+            {
+                nghia: "Đợi,chờ",
+                tudien: ["待つ","まつ"],
+                lichsu: ["待ちます","まちます"],
+                te: ["待って","まって"],
+                ta:["待った","まった"],
+                nai:["待たない","またない"]
+            },
+            {
+                nghia: "Cầm,mang",
+                tudien: ["持つ","もつ"],
+                lichsu: ["持ちます","もちます"],
+                te: ["持って","もって"],
+                ta:["持った","もった"],
+                nai:["持たない","もたない"]
+            },
+            {
+                nghia: "Lấy",
+                tudien: ["取る","とる"],
+                lichsu: ["取ります","とります"],
+                te: ["取って","とって"],
+                ta:["取った","とった"],
+                nai:["取らない","とらない"]
+            },
+            {
+                nghia: "Rẽ",
+                tudien: ["曲がる","まがる"],
+                lichsu: ["曲がります","まがります"],
+                te: ["曲がって","まがって"],
+                ta:["曲がった","まがった"],
+                nai:["曲がらない","まがらない"]
+            },
+            {
+                nghia: "Vội, gấp",
+                tudien: ["急ぐ","いそぐ"],
+                lichsu: ["急ぎます","いそぎます"],
+                te: ["急いで","いそいで"],
+                ta:["急いだ","いそいだ"],
+                nai:["急がない","いそがない"]
+            },
+            {
+                nghia: "Kêu,gọi",
+                tudien: ["呼ぶ","よぶ"],
+                lichsu: ["呼びます","よびます"],
+                te: ["呼んで","よんで"],
+                ta:["呼んだ","よんだ"],
+                nai:["呼ばない","よばない"]
+            },
+            {
+                nghia: "Bật",
+                tudien: ["付ける","つける"],
+                lichsu: ["付けます","つけます"],
+                te: ["付けて","つけて"],
+                ta:["付けた","つけた"],
+                nai:["付けない","つけない"]
+            },
+            {
+                nghia: "Tắt",
+                tudien: ["消す","けす"],
+                lichsu: ["消します","けします"],
+                te: ["消して","けして"],
+                ta:["消した","けした"],
+                nai:["消さない","けさない"]
+            },
+            {
+                nghia: "Mở",
+                tudien: ["開ける","あける"],
+                lichsu: ["あけます","あけます"],
+                te: ["開けて","あけて"],
+                ta:["あけた","あけた"],
+                nai:["開けない","あけない"]
+            },
+            {
+                nghia: "Đóng",
+                tudien: ["閉める","しめる"],
+                lichsu: ["閉めます","しめます"],
+                te: ["閉めて","しめて"],
+                ta:["閉めた","しめた"],
+                nai:["閉めない","しめない"]
+            },
+            {
+                nghia: "Dừng",
+                tudien: ["止める","とめる"],
+                lichsu: ["止めます","とめます"],
+                te: ["止めて","とめて"],
+                ta:["止めた","とめた"],
+                nai:["止めない","とめない"]
+            },
+            {
+                nghia: "Cho xem",
+                tudien: ["見せる","みせる"],
+                lichsu: ["見せます","みせます"],
+                te: ["見せて","みせて"],
+                ta:["見せた","みせた"],
+                nai:["見せない","みせない"]
+            },
+            {
+                nghia: "Bắt đầu",
+                tudien: ["始める","はじめる"],
+                lichsu: ["始めます","はじめます"],
+                te: ["始めて","はじめて"],
+                ta:["始めた","はじめた"],
+                nai:["始めない","はじめない"]
+            },
+            {
+                nghia: "photo copy",
+                tudien: ["コピーする","コピーする"],
+                lichsu: ["コピーします","コピーします"],
+                te: ["コピーして","コピーして"],
+                ta:["コピーした","コピーした"],
+                nai:["コピーしない","コピーしない"]
+            },
+            {
+                nghia: "Dùng, sử dụng",
+                tudien: ["使う","つかう"],
+                lichsu: ["使います","つかいます"],
+                te: ["使って","つかって"],
+                ta:["使った","つかった"],
+                nai:["使わない","つかわない"]
+            },
+            {
+                nghia: "Đứng",
+                tudien: ["立つ","たつ"],
+                lichsu: ["立ちます","たちます"],
+                te: ["立って","たって"],
+                ta:["立った","たった"],
+                nai:["立たない","たたない"]
+            },
+            {
+                nghia: "Ngồi",
+                tudien: ["座る","すわる"],
+                lichsu: ["座ります","すわります"],
+                te: ["座って","すわって"],
+                ta:["座った","すわった"],
+                nai:["座らない","すわらない"]
+            },
+            {
+                nghia: "Làm, sản xuất",
+                tudien: ["作る","つくる"],
+                lichsu: ["作ります","つくります"],
+                te: ["作って","つくって"],
+                ta:["作った","つくった"],
+                nai:["作らない","つくらない"]
+            },
+            {
+                nghia: "Bán",
+                tudien: ["売る","うる"],
+                lichsu: ["売ります","うります"],
+                te: ["売って","うって"],
+                ta:["売った","うった"],
+                nai:["売らない","うらない"]
+            },
+            {
+                nghia: "Hiểu,biết",
+                tudien: ["分かる","わかる"],
+                lichsu: ["分かります","わかります"],
+                te: ["分かって","わかって"],
+                ta:["分かった","わかった"],
+                nai:["分からない","わからない"]
+            },
+            {
+                nghia: "Đặt để",
+                tudien: ["置く","おく"],
+                lichsu: ["置きます","おきます"],
+                te: ["置いて","おいて"],
+                ta:["置いた","おいた"],
+                nai:["置かない","おかない"]
+            },
+            {
+                nghia: "Sống",
+                tudien: ["住む","すむ"],
+                lichsu: ["住みます","すみます"],
+                te: ["住んで","すんで"],
+                ta:["住んだ","すんだ"],
+                nai:["住まない","すまない"]
+            },
+            {
+                nghia: "Từ bỏ",
+                tudien: ["やめる","やめる"],
+                lichsu: ["やめます","やめます"],
+                te: ["やめて","やめて"],
+                ta:["やめた","やめた"],
+                nai:["やめない","やめない"]
+            },
+            {
+                nghia: "Du lịch",
+                tudien: ["旅行する","りょこうする"],
+                lichsu: ["旅行します","りょこうします"],
+                te: ["旅行して","りょこうして"],
+                ta:["旅行した","りょこうした"],
+                nai:["旅行しない","りょこうしない"]
+            },
+            {
+                nghia: "Nghiên cứu",
+                tudien: ["研究する","けんきゅうする"],
+                lichsu: ["研究します","けんきゅうします"],
+                te: ["研究して","けんきゅうして"],
+                ta:["研究した","けんきゅうした"],
+                nai:["研究しない","けんきゅうしない"]
+            },
+            {
+                nghia: "Kiểm tra",
+                tudien: ["チェックする","チェックする"],
+                lichsu: ["チェックします","チェックします"],
+                te: ["チェックして","チェックして"],
+                ta:["チェックした","チェックした"],
+                nai:["チェックしない","チェックしない"]
+            },
+            {
+                nghia: "Ấn",
+                tudien: ["押す","おす"],
+                lichsu: ["押します","おします"],
+                te: ["押して","おして"],
+                ta:["押した","おした"],
+                nai:["押さない","おさない"]
+            },
+            {
+                nghia: "Lên(tàu)",
+                tudien: ["電車に乗る","でんしゃにのる"],
+                lichsu: ["電車に乗ります","でんしゃにのります"],
+                te: ["乗って","のって"],
+                ta:["乗った","のった"],
+                nai:["乗らない","のらない"]
+            },
+            {
+                nghia: "Đổi tàu",
+                tudien: ["乗り換える","のりかえる"],
+                lichsu: ["乗り換えます","のりかえます"],
+                te: ["乗り換えて","のりかえて"],
+                ta:["乗り換えた","のりかえた"],
+                nai:["乗り換えない","のりかえない"]
+            },
+            {
+                nghia: "Tắm",
+                tudien: ["浴びる","あびる"],
+                lichsu: ["浴びます","あびます"],
+                te: ["浴びて","あびて"],
+                ta:["浴びた","あびた"],
+                nai:["浴びない","あびない"]
+            },
+            {
+                nghia: "Cho vào",
+                tudien: ["入れる","いれる"],
+                lichsu: ["入れます","いれます"],
+                te: ["入れて","いれて"],
+                ta:["入れた","いれた"],
+                nai:["入れない","いれない"]
+            },
+            {
+                nghia: "Đánh(răng)",
+                tudien: ["歯を磨く","はをみがく"],
+                lichsu: ["歯を磨きます","はをみがきます"],
+                te: ["磨いて","みがいて"],
+                ta:["磨いた","みがいた"],
+                nai:["磨かない","みがかない"]
+            },
+            {
+                nghia: "Chọn",
+                tudien: ["選ぶ","えらぶ"],
+                lichsu: ["選びます","えらびます"],
+                te: ["選んで","えらんで"],
+                ta:["選んだ","えらんだ"],
+                nai:["選ばない","えらばない"]
+            },
+            {
+                nghia: "Làm mất",
+                tudien: ["無くす","なくす"],
+                lichsu: ["無くします","なくします"],
+                te: ["無くして","なくして"],
+                ta:["無くした","なくした"],
+                nai:["無くさない","なくさない"]
+            },
+            {
+                nghia: "Trả tiền",
+                tudien: ["払う","はらう"],
+                lichsu: ["払います","はらいます"],
+                te: ["払って","はらって"],
+                ta:["払った","はらった"],
+                nai:["払わない","はらわない"]
+            },
+            {
+                nghia: "Trả lại",
+                tudien: ["返す","かえす"],
+                lichsu: ["返します","かえします"],
+                te: ["返して","かえして"],
+                ta:["返した","かえした"],
+                nai:["返さない","かえさない"]
+            },
+            {
+                nghia: "Cởi",
+                tudien: ["脱ぐ","ぬぐ"],
+                lichsu: ["脱ぎます","ぬぎます"],
+                te: ["脱いで","ぬいで"],
+                ta:["脱いだ","ぬいだ"],
+                nai:["脱がない","ぬがない"]
+            },
+            {
+                nghia: "Mang tới",
+                tudien: ["持って来る","もってくる"],
+                lichsu: ["持って来ます","もってきます"],
+                te: ["持って来て","もってきて"],
+                ta:["持って来た","もってきた"],
+                nai:["持って来ない","もってこない"]
+            },
+            {
+                nghia: "Mang đi",
+                tudien: ["持って行く","もっていく"],
+                lichsu: ["もって行きます","もっていきます"],
+                te: ["持って行って","もっていって"],
+                ta:["持って行った","もっていった"],
+                nai:["持って行かない","もっていかない"]
+            },
+            {
+                nghia: "Đi ra ngoài",
+                tudien: ["出かける","でかける"],
+                lichsu: ["出かけます","でかけます"],
+                te: ["出かけて","でかけて"],
+                ta:["出かけた","でかけた"],
+                nai:["出かけない","でかけない"]
+            },
+            {
+                nghia: "Nhớ",
+                tudien: ["覚える","おぼえる"],
+                lichsu: ["覚えます","おぼえます"],
+                te: ["覚えて","おぼえて"],
+                ta:["覚えた","おぼえた"],
+                nai:["覚えない","おぼえない"]
+            },
+            {
+                nghia: "Quên",
+                tudien: ["忘れる","わすれる"],
+                lichsu: ["忘れます","わすれます"],
+                te: ["忘れて","わすれて"],
+                ta:["忘れた","わすれた"],
+                nai:["忘れない","わすれない"]
+            },
+            {
+                nghia: "Lo lắng",
+                tudien: ["心配する","しんぱいする"],
+                lichsu: ["心配します","しんぱいします"],
+                te: ["心配して","しんぱいして"],
+                ta:["心配した","しんぱいした"],
+                nai:["心配しない","しんぱいしない"]
+            },
+            {
+                nghia: "Công tác",
+                tudien: ["出張する","しゅっちょうする"],
+                lichsu: ["出張します","しゅっちょうします"],
+                te: ["出張して","しゅっちょうして"],
+                ta:["出張した","しゅっちょうした"],
+                nai:["出張しない","しゅっちょうしない"]
+            },
+            {
+                nghia: "Chuyển nhà",
+                tudien: ["引っ越しする","ひっこしする"],
+                lichsu: ["引っ越しします","ひっこしします"],
+                te: ["引っ越しして","ひっこしして"],
+                ta:["引っ越しした","ひっこしした"],
+                nai:["引っ越ししない","ひっこししない"]
+            },
+            {
+                nghia: "Rửa",
+                tudien: ["洗う","あらう"],
+                lichsu: ["洗います","あらいます"],
+                te: ["洗って","あらって"],
+                ta:["洗った","あらった"],
+                nai:["洗わない","あらわない"]
+            },
+            {
+                nghia: "Hát",
+                tudien: ["歌う","うたう"],
+                lichsu: ["歌います","うたいます"],
+                te: ["歌って","うたって"],
+                ta:["歌った","うたった"],
+                nai:["歌わない","うたわない"]
+            },
+            {
+                nghia: "Kéo",
+                tudien: ["引く","ひく"],
+                lichsu: ["引きます","ひきます"],
+                te: ["引いて","ひいて"],
+                ta:["引いた","ひいた"],
+                nai:["引かない","ひかない"]
+            },
+            {
+                nghia: "Có thể",
+                tudien: ["出来る","できる"],
+                lichsu: ["出来ます","できます"],
+                te: ["出来て","できて"],
+                ta:["出来た","できた"],
+                nai:["出来ない","できない"]
+            },
+            {
+                nghia: "Vứt",
+                tudien: ["捨てる","すてる"],
+                lichsu: ["捨てます","すてます"],
+                te: ["捨てて","すてて"],
+                ta:["捨てた","すてた"],
+                nai:["捨てない","すてない"]
+            },
+            {
+                nghia: "Điều trị",
+                tudien: ["調べる","しらべる"],
+                lichsu: ["調べます","しらべます"],
+                te: ["調べて","しらべて"],
+                ta:["調べた","しらべた"],
+                nai:["調べない","しらべない"]
+            },
+            {
+                nghia: "Tập hợp",
+                tudien: ["集める","あつめる"],
+                lichsu: ["集めます","あつめます"],
+                te: ["集めて","あつめて"],
+                ta:["集めた","あつめた"],
+                nai:["集めない","あつめない"]
+            },
+            {
+                nghia: "Lái xe",
+                tudien: ["運転する","うんてんする"],
+                lichsu: ["運転します","うんてんします"],
+                te: ["運転して","うんてんして"],
+                ta:["運転した","うんてんした"],
+                nai:["運転しない","うんてんしない"]
+            },
+            {
+                nghia: "Đặt trước",
+                tudien: ["予約する","よやくする"],
+                lichsu: ["予約します","よやくします"],
+                te: ["予約して","よやくして"],
+                ta:["予約した","よやくした"],
+                nai:["予約しない","よやくしない"]
+            },
+            {
+                nghia: "Kiến tập",
+                tudien: ["見学する","けんがくする"],
+                lichsu: ["見学します","けんがくします"],
+                te: ["見学して","けんがくして"],
+                ta:["見学した","けんがくした"],
+                nai:["見学しない","けんがくしない"]
+            },
+            {
+                nghia: "Dừng lại",
+                tudien: ["止まる","とまる"],
+                lichsu: ["止まります","とまります"],
+                te: ["止まって","とまって"],
+                ta:["止まった","とまった"],
+                nai:["止まらない","とまらない"]
+            },
+            {
+                nghia: "Kêu",
+                tudien: ["鳴る","なる"],
+                lichsu: ["鳴ります","なります"],
+                te: ["鳴って","なって"],
+                ta:["鳴った","なった"],
+                nai:["鳴らない","ならない"]
+            },
+            {
+                nghia: "Dọn dẹp",
+                tudien: ["掃除する","そうじする"],
+                lichsu: ["掃除します","そうじします"],
+                te: ["掃除して","そうじして"],
+                ta:["掃除した","そうじした"],
+                nai:["掃除しない","そうじしない"]
+            },
+            {
+                nghia: "Giặt dũ",
+                tudien: ["洗濯する","せんたくする"],
+                lichsu: ["洗濯します","せんたくします"],
+                te: ["洗濯して","せんたくして"],
+                ta:["洗濯した","せんたくした"],
+                nai:["洗濯しない","せんたくしない"]
+            },
+            {
+                nghia: " Sửa",
+                tudien: ["直す","なおす"],
+                lichsu: ["直します","なおします"],
+                te: ["直して","なおして"],
+                ta:["直した","なおした"],
+                nai:["直さない","なおさない"]
+            },
+            {
+                nghia: "Sữa chữa",
+                tudien: ["修理する","しゅうりする"],
+                lichsu: ["しゅうりします","しゅうりします"],
+                te: ["修理して","しゅうりして"],
+                ta:["修理した","しゅうりした"],
+                nai:["修理しない","しゅうりしない"]
+            },
+            {
+                nghia: "Gọi điên",
+                tudien: ["電話する","でんわする"],
+                lichsu: ["電話します","でんわします"],
+                te: ["電話して","でんわして"],
+                ta:["電話した","でんわした"],
+                nai:["電話しない","でんわしない"]
+            },
+            {
+                nghia: "Nghỉ, cho rằng",
+                tudien: ["思う","おもう"],
+                lichsu: ["思います","おもいます"],
+                te: ["思って","おもって"],
+                ta:["思った","おもった"],
+                nai:["思わない","おもわない"]
+            },
+            {
+                nghia: "Nói",
+                tudien: ["言う","いう"],
+                lichsu: ["言います","いいます"],
+                te: ["言って","いって"],
+                ta:["言った","いった"],
+                nai:["言わない","いわない"]
+            },
+            {
+                nghia: "Có ích",
+                tudien: ["役に立つ","やくにたつ"],
+                lichsu: ["役に立ちます","やくにたちます"],
+                te: ["役に立って","やくにたって"],
+                ta:["役に立った","やくにたった"],
+                nai:["役に立たない","やくにたたない"]
+            },
+            {
+                nghia: "Thắng",
+                tudien: ["勝つ","かつ"],
+                lichsu: ["勝ちます","かちます"],
+                te: ["勝って","かって"],
+                ta:["勝った","かった"],
+                nai:["勝たない","かたない"]
+            },
+            {
+                nghia: "Thua",
+                tudien: ["負ける","まける"],
+                lichsu: ["負けます","まけます"],
+                te: ["負けて","まけて"],
+                ta:["負けた","まけた"],
+                nai:["負けない","まけない"]
+            },
+            {
+                nghia: "Cẩn thận, chú ý",
+                tudien: ["気を付ける","きをつける"],
+                lichsu: ["気を付けます","きをつけます"],
+                te: ["気を付けて","きをつけて"],
+                ta:["気を付けた","きをつけた"],
+                nai:["気を付けない","きをつけない"]
+            },
+            {
+                nghia: "Đi, xỏ(giày)",
+                tudien: ["靴を履く","くつをはく"],
+                lichsu: ["靴を履きます","くつをはきます"],
+                te: ["履いて","はいて"],
+                ta:["履いた","はいた"],
+                nai:["履かない","はかない"]
+            },
+            {
+                nghia: "Mặc(quần áo))",
+                tudien: ["服を着る","ふくをきる"],
+                lichsu: ["服を着ます","ふくをきます"],
+                te: ["着て","きて"],
+                ta:["着た","きた"],
+                nai:["着ない","きない"]
+            },
+            {
+                nghia: "Được sinh ra",
+                tudien: ["生まれる","うまれる"],
+                lichsu: ["生まれます","うまれます"],
+                te: ["生まれて","うまれて"],
+                ta:["生まれた","うまれた"],
+                nai:["生まれない","うまれない"]
+            },
+            {
+                nghia: "Chuyển động",
+                tudien: ["動く","うごく"],
+                lichsu: ["動きます","うごきます"],
+                te: ["動いて","うごいて"],
+                ta:["動いた","うごいた"],
+                nai:["動かない","うごかない"]
+            },
+            {
+                nghia: "Đi bộ",
+                tudien: ["歩く","あるく"],
+                lichsu: ["歩きます","あるきます"],
+                te: ["歩いて","あるいて"],
+                ta:["歩いた","あるいた"],
+                nai:["歩かない","あるかない"]
+            },
+            {
+                nghia: "Chạm vào",
+                tudien: ["触る","さわる"],
+                lichsu: ["触ります","さわります"],
+                te: ["触って","さわって"],
+                ta:["触った","さわった"],
+                nai:["触らない","さわらない"]
+            },
+            {
+                nghia: "Băng qua",
+                tudien: ["渡る","わたる"],
+                lichsu: ["渡ります","わたります"],
+                te: ["渡って","わたって"],
+                ta:["渡った","わたった"],
+                nai:["渡らない","わたらない"]
+            },
+            {
+                nghia: "Đổi",
+                tudien: ["変える","かえる"],
+                lichsu: ["変えます","かえます"],
+                te: ["変えて","かえて"],
+                ta:["変えた","かえた"],
+                nai:["変えない","かえない"]
+            },
+            {
+                nghia: "Mệt",
+                tudien: ["疲れる","つかれる"],
+                lichsu: ["疲れます","つかれます"],
+                te: ["疲れて","つかれて"],
+                ta:["疲れた","つかれた"],
+                nai:["疲れない","つかれない"]
+            },
+            {
+                nghia: "Chú ý",
+                tudien: ["注意する","ちゅういする"],
+                lichsu: ["注意します","ちゅういします"],
+                te: ["注意して","ちゅういして"],
+                ta:["注意した","ちゅういした"],
+                nai:["注意しない","ちゅういしない"]
+            },
+            {
+                nghia: "Trang điểm",
+                tudien: ["化粧する","けしょうする"],
+                lichsu: ["化粧します","けしょうします"],
+                te: ["化粧して","けしょうして"],
+                ta:["化粧した","けしょうした"],
+                nai:["化粧しない","けしょうしない"]
+            },
+            {
+                nghia: "Dẫn đi",
+                tudien: ["連れて行く","つれていく"],
+                lichsu: ["連れて行きます","つれていきます"],
+                te: ["連れて行って","つれていって"],
+                ta:["連れて行った","つれていった"],
+                nai:["連れて行かない","つれていかない"]
+            },
+            {
+                nghia: "Giới thiệu",
+                tudien: ["紹介する","しょうかいする"],
+                lichsu: ["紹介します","しょうかいします"],
+                te: ["紹介して","しょうかいして"],
+                ta:["紹介した","しょうかいした"],
+                nai:["紹介しない","しょうかいしない"]
+            },
+            {
+                nghia: "Hướng dẫn, chỉ đường",
+                tudien: ["案内する","あんないする"],
+                lichsu: ["案内します","あんないします"],
+                te: ["案内して","あんないして"],
+                ta:["案内した","あんないした"],
+                nai:["案内しない","あんないしない"]
+            },
+            {
+                nghia: "Giải thích",
+                tudien: ["説明する","せつめいする"],
+                lichsu: ["説明します","せつめいします"],
+                te: ["説明して","せつめいして"],
+                ta:["説明した","せつめいした"],
+                nai:["説明しない","せつめいしない"]
+            },
+            {
+                nghia: "Suy nghĩ",
+                tudien: ["考える","かんがえる"],
+                lichsu: ["考えます","かんがえます"],
+                te: ["考えて","かんがえて"],
+                ta:["考えた","かんがえた"],
+                nai:["考えない","かんがえない"]
+            },
+            {
+                nghia: "Du học",
+                tudien: ["留学する","りゅうがくする"],
+                lichsu: ["留学します","りゅうがくします"],
+                te: ["留学して","りゅうがくして"],
+                ta:["留学した","りゅうがくした"],
+                nai:["留学しない","りゅうがくしない"]
+            }
+        ]
+
+        currentArray = listNumber;
+        let param = {
+            btnName,
+            message,
+            numberTest,
+            testContent,
+            japanValue,
+            focus,
+            selectedValue
+        }
+        init(param);
+
+        function init({ btnName, message, numberTest, testContent,japanValue, focus, selectedValue }) {
+            console.log(arguments)
+            var input = document.querySelector(".input");
+            var btn = document.querySelector(".control");
+            var messageValue = document.querySelector(".message");
+            var numValue = document.querySelector(".num");
+            var testValue = document.querySelector(".test");
+            var select = document.querySelector("#selectBox");
+            var japan = document.querySelector(".japan");
+            //console.log(japanValue)
+
+            ((selectedValue == 3) || (selectedValue == 1)) && input.classList.remove("none");
+            focus && input.focus();
+            btn.innerHTML = btnName;
+            messageValue.innerHTML = message;
+            numValue.innerHTML = numberTest;
+            testValue.innerHTML = testContent;
+            select.value = selectedValue;
+            japan.innerHTML = japanValue;
+        }
+
+        function handleOnclick() {
+            var select = document.querySelector("#selectBox");
+            var japanValue;
+            let japanType;
+            var input = document.querySelector(".input");
+            switch (Number(select.value)) {
+                case 1:
+                document.querySelector("#right").style.display = "none";
+                    if (input.value == "") {
+                        param = {
+                            ...param,
+                            message: "Tên bạn không được để trống"
+                        }
+                        document.querySelector(".message").classList.add("error");
+                        init(param);
+                    } else {
+                        studentName = input.value;
+                        select.value = 2;
+                        document.querySelector(".message").classList.remove("error");
+                        document.querySelector(".test").classList.add("success");
+                        btnName = "Bắt đầu";
+                        message = "Vui lòng nhấn Bắt đầu để làm bài!!!";
+                        testContent = `Chào mừng ${studentName} đã đến với bài kiểm tra!!!`
+                        input.classList.add("none");
+                        selectedValue = select.value
+                        param = {
+                            ...param,
+                            message,
+                            btnName,
+                            testContent,
+                            selectedValue
+                        }
+                        init(param);
+                    }
+                    break;
+
+                case 2:
+                    var select = document.querySelector("#selectBox");
+                    var testValue = document.querySelector(".test");
+                    var input = document.querySelector(".input");
+                    var messageValue = document.querySelector(".message");
+                    document.querySelector("#right").style.display = "block";
+                    
+                    
+                    setValue();
+                    currentArray = listNumber;
+                    currentIndex = 0;
+                    testValue.classList.remove("success");
+                    input.value = "";
+                    input.placeholder = `Nhập đáp án của ${studentName}`;
+                    select.value = 3;
+                    message = "";
+                    selectedValue = select.value;
+                    currentNumber = listNumber.sort(() => Math.random() - 0.5)[0];
+                    testContent = `Chuyển động từ bên dưới sang thể ${thedongtu}:<br/> ${currentNumber.nghia} `;
+                    btnName = "Nộp";
+
+                    if(type == "tudien"){
+                        japanType = currentNumber.tudien;
+                    }else {
+                        japanType = currentNumber.lichsu;
+                    }
+
+                    if(displaying == "hira"){
+                        japanValue = japanType[1];
+                    }else {
+                        japanValue = japanType[0];
+                    }
+                    console.log(japanValue);
+                    currentIndex++;
+                    numberTest = currentIndex + "/" + listNumber.length
+                    param = {
+                        ...param,
+                        message,
+                        selectedValue,
+                        testContent,
+                        japanValue,
+                        btnName,
+                        numberTest
+                    }
+
+
+                    init(param);
+                    break;
+                case 3:
+                    let checkValue= "";
+                    var inputText = input.value;
+                    if (inputText == "") {
+                        message = `${studentName} ơi, Bạn chưa nhập đáp án kìa!!!`;
+                        document.querySelector(".message").classList.add("opacity");
+                        param = {
+                            ...param,
+                            message
+                        }
+                        init(param)
+                        setTimeout(() => {
+                            message = ``;
+                            document.querySelector(".message").classList.remove("opacity");
+                            param = {
+                                ...param,
+                                message
+                            }
+                            init(param)
+                        }, 3000);
+                    }
+                    
+
+                    switch(thedongtu){
+                        case "て":
+                            checkValue = currentNumber.te;
+                            break;
+                        case "た":
+                        checkValue = currentNumber.ta;
+                            break;
+                        case "ない":
+                            checkValue = currentNumber.nai;
+                            break;
+                        default: checkValue = currentNumber.te;
+                    }
+
+                    
+
+                    if (checkValue.includes(inputText)) {
+                        let random = Math.floor(Math.random() * 4);
+                        let messageOk = listAnswerOK[random];
+                        message = messageOk;
+                        document.querySelector(".message").classList.add("opacityOk");
+                        param = {
+                            ...param,
+                            message
+                        }
+                        init(param)
+                        timeId = setTimeout(() => {
+                            message = ``;
+                            document.querySelector(".message").classList.remove("opacityOk");
+                            param = {
+                                ...param,
+                                message
+                            }
+                            init(param)
+                        }, 2000);
+
+
+                        var arrayRemove = currentArray.filter(e => e !== currentNumber);
+                        currentArray = arrayRemove;
+                        if (currentArray.length == 0) {
+                            testContent = `${studentName} ơi, Bạn đã hoàn thành bài test!!!`;
+                            select.value = 4;
+                            selectedValue = select.value
+                            message = "Dành thời gian làm lại để ôn tập nhé";
+                            btnName = "Đã hoàn thành";
+                            input.classList.add("none");
+                            param = {
+                                ...param,
+                                message,
+                                testContent,
+                                selectedValue,
+                                btnName,
+                                message
+                            }
+                            init(param);
+                            clearTimeout(timeId)
+                        } else {
+                            currentIndex = currentIndex++;
+                            currentNumber = currentArray[0];
+                            input.focus();
+                            input.value = "";
+                            testContent = `Chuyển động từ bên dưới sang thể ${thedongtu}:<br/> ${currentNumber.nghia} `;
+                            if(type == "tudien"){
+                                japanType = currentNumber.tudien;
+                            }else {
+                                japanType = currentNumber.lichsu;
+                            }
+
+                            if(displaying == "hira"){
+                                japanValue = japanType[1];
+                            }else {
+                                japanValue = japanType[0];
+                            }
+                            currentIndex++;
+                            numberTest = currentIndex + "/" + listNumber.length;
+
+                            param = {
+                                ...param,
+                                testContent,
+                                japanValue,
+                                numberTest,
+
+                            }
+
+                            init(param);
+                        }
+
+                    } else if (inputText != "") {
+                        let idSetTimeout;
+                        let random = Math.floor(Math.random() * 4);
+                        let messageNot = listAnswerNot[random];
+                        message = messageNot ;
+                            param = {
+                            ...param,
+                            message
+                        }
+                        init(param)
+                        let hintBtn = document.querySelector(".hint");
+                        console.log(hintBtn)
+                        
+                        
+                        document.querySelector(".message").classList.add("opacityNot");
+                        idSetTimeout = setTimeout(() => {
+                            message = ``;
+                            document.querySelector(".message").classList.remove("opacityNot");
+                            param = {
+                                ...param,
+                                message
+                            }
+                            init(param);
+                            console.log(111);
+                        }, 10000);
+                        
+
+                        hintBtn.addEventListener("click",()=>{
+                            let mes = document.querySelector(".message");
+                           input.focus();
+                           input.value = "";
+                            console.log(mes.classList); 
+
+                            // mes.classList.toggle("opacityNot");
+                            // mes.classList.toggle("opacityNot2")
+                           
+                            clearTimeout(idSetTimeout);
+
+                            messageNot = currentNumber.hiragana.join(" ");
+                            message = messageNot + "<br/>" + "<button class='hint'>xem gợi ý</button>" + "<br/>";
+                            // document.querySelector(".message").classList.remove("opacityNot");
+                            param = {
+                                ...param,
+                                message
+                            }
+                            init(param);
+                        })
+                        
+                        
+
+
+                    }
+
+                    break;
+                case 4:
+                    
+                    btnName = "Hoàn thành!!!";
+                    
+                    param = {
+                        ...param,
+                        btnName
+                    }
+                    init(param)
+                    break;
+
+                default: console.log("ERROR!!!")
+                    break;
+            }
+        }
+
+        function changeContent(){
+            let select = document.getElementById("content-select");
+            console.log(select.value);
+            switch(select.value){
+                case "te":
+                    thedongtu = "て";
+                    break;
+                case "ta":
+                    thedongtu = "た";
+                    break;
+                case "nai":
+                    thedongtu = "ない";
+                    break;
+                default: console.log("ERROR!!!");
+            }
+
+            document.querySelector("#selectBox").value = 2;
+            handleOnclick();
+        }
+
+        function setValue(){
+            let select = document.getElementById("content-select");
+            if(select.value == "default"){
+                select.value = "te";
+                thedongtu = "て";
+            }
+        }
+
+        function changeType(e){
+            let japanType,japanValue;
+            if(e.value == "tudien"){
+                type = "tudien"
+            }else if(e.value == "lichsu"){
+                type = "lichsu";
+            }
+
+            if(type == "tudien"){
+                        japanType = currentNumber.tudien;
+                    }else {
+                        japanType = currentNumber.lichsu;
+                    }
+
+                    if(displaying == "hira"){
+                        japanValue = japanType[1];
+                    }else {
+                        japanValue = japanType[0];
+                    }
+
+                    param = 
+                    {
+                        ...param,
+                        japanValue
+                    }
+
+                    init(param);
+        }
+
+        function changeDisplaying(e){
+            let japanType,japanValue;
+
+            if(e.value == "hira"){
+                displaying = "hira"
+            }else if(e.value == "kanji"){
+                displaying = "kanji";
+            }
+
+            if(type == "tudien"){
+                japanType = currentNumber.tudien;
+            }else {
+                japanType = currentNumber.lichsu;
+            }
+
+            if(displaying == "hira"){
+                japanValue = japanType[1];
+            }else {
+                japanValue = japanType[0];
+            }
+
+            param = {
+                ...param,
+                japanValue
+            }
+            init(param);
+        }
+
+    </script>
+
+</body>
+
+</html>
+
