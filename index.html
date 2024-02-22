@@ -340,18 +340,25 @@
                 <div class="container-flash" id="container-flash">
                     <div id="right">
                         <div class="right">
-                            <label onclick="event.stopPropagation()" for="betoBtn">* Lịch sự &nbsp; </label>
+                            <!-- <label onclick="event.stopPropagation()" for="betoBtn">* Lịch sự &nbsp; </label>
                             <input type="radio" value="lichsu" checked name="the" id="betoBtn" onchange="changeType(this)" onclick="event.stopPropagation()" >
                             <label onclick="event.stopPropagation()" for="">&nbsp;</label>
                             <label onclick="event.stopPropagation()" for="betoBtn1">Từ điển&nbsp;</label>
-                            <input type="radio" value="tudien" name="the" id="betoBtn1" onchange="changeType(this)" onclick="event.stopPropagation()" >
+                            <input type="radio" value="tudien" name="the" id="betoBtn1" onchange="changeType(this)" onclick="event.stopPropagation()" > -->
+                            <label onclick="event.stopPropagation()" for="betoBtn">* Lịch sự &nbsp; </label>
+                            <input type="checkbox" value="lichsu" checked name="the" id="betoBtn" onchange="changeType(this)" onclick="event.stopPropagation()" >
+                            <label onclick="event.stopPropagation()" for="">&nbsp;</label>
+                            
                         </div>
                         <div class="right">
-                            <label onclick="event.stopPropagation()" for="betoBtn3">* Kanji &nbsp;</label>
+                            <!-- <label onclick="event.stopPropagation()" for="betoBtn3">* Kanji &nbsp;</label>
                             <input type="radio" checked name="hira" id="betoBtn3" value="kanji" onchange="changeDisplaying(this)" onclick="event.stopPropagation()" >
                             <label onclick="event.stopPropagation()" for="">&nbsp;</label>
                             <label onclick="event.stopPropagation()" for="betoBtn2">Hiragana &nbsp;</label>
-                            <input type="radio"  name="hira" value="hira" onchange="changeDisplaying(this)" id="betoBtn2" onclick="event.stopPropagation()" >
+                            <input type="radio"  name="hira" value="hira" onchange="changeDisplaying(this)" id="betoBtn2" onclick="event.stopPropagation()" > -->
+                            <label onclick="event.stopPropagation()" for="betoBtn3">* Kanji &nbsp;</label>
+                            <input type="checkbox" checked name="hira" id="betoBtn3" value="kanji" onchange="changeDisplaying(this)" onclick="event.stopPropagation()" >
+                            <label onclick="event.stopPropagation()" for="">&nbsp;</label>
                             
                         </div>
                         
@@ -1485,7 +1492,7 @@
                     message = "";
                     selectedValue = select.value;
                     currentNumber = listNumber.sort(() => Math.random() - 0.5)[0];
-                    testContent = `Chuyển động từ bên dưới sang thể ${thedongtu}:<br/> ${currentNumber.nghia} `;
+                    testContent = `Chuyển động từ sang thể ${thedongtu}:<br/> ${currentNumber.nghia} `;
                     btnName = "Nộp";
 
                     if(type == "tudien"){
@@ -1598,7 +1605,7 @@
                             currentNumber = currentArray[0];
                             input.focus();
                             input.value = "";
-                            testContent = `Chuyển động từ bên dưới sang thể ${thedongtu}:<br/> ${currentNumber.nghia} `;
+                            testContent = `Chuyển động từ sang thể ${thedongtu}:<br/> ${currentNumber.nghia} `;
                             if(type == "tudien"){
                                 japanType = currentNumber.tudien;
                             }else {
@@ -1723,10 +1730,11 @@
         }
 
         function changeType(e){
+            console.log(e.checked);
             let japanType,japanValue;
-            if(e.value == "tudien"){
+            if(!e.checked){
                 type = "tudien"
-            }else if(e.value == "lichsu"){
+            }else if(e.checked){
                 type = "lichsu";
             }
 
@@ -1754,9 +1762,9 @@
         function changeDisplaying(e){
             let japanType,japanValue;
 
-            if(e.value == "hira"){
+            if(!e.checked){
                 displaying = "hira"
-            }else if(e.value == "kanji"){
+            }else if(e.checked){
                 displaying = "kanji";
             }
 
