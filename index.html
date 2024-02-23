@@ -1030,7 +1030,7 @@
             {
                 nghia: "Mang đi",
                 tudien: ["持って行く","もっていく"],
-                lichsu: ["もって行きます","もっていきます"],
+                lichsu: ["持って行きます","もっていきます"],
                 te: ["持って行って","もっていって"],
                 ta:["持って行った","もっていった"],
                 nai:["持って行かない","もっていかない"]
@@ -1263,9 +1263,9 @@
                 nghia: "Cẩn thận, chú ý",
                 tudien: ["気を付ける","きをつける"],
                 lichsu: ["気を付けます","きをつけます"],
-                te: ["気を付けて","きをつけて"],
-                ta:["気を付けた","きをつけた"],
-                nai:["気を付けない","きをつけない"]
+                te: ["付けて","つけて"],
+                ta:["付けた","つけた"],
+                nai:["付けない","つけない"]
             },
             {
                 nghia: "Đi, xỏ(giày)",
@@ -1480,7 +1480,7 @@
                     var input = document.querySelector(".input");
                     var messageValue = document.querySelector(".message");
                     document.querySelector("#right").style.display = "block";
-                    
+                   
                     
                     setValue();
                     currentArray = listNumber;
@@ -1585,6 +1585,7 @@
                         currentArray = arrayRemove;
                         if (currentArray.length == 0) {
                             testContent = `${studentName} ơi, Bạn đã hoàn thành bài test!!!`;
+                            document.querySelector("#right").style.display = "none";
                             select.value = 4;
                             selectedValue = select.value
                             message = "Dành thời gian làm lại để ôn tập nhé";
